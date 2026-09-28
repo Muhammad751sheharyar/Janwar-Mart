@@ -1,0 +1,254 @@
+/* =====================================================
+   JANWARMART — SELL ANIMAL PAGE
+   Same design system as App.css (forest / gold / rust / paper).
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --forest: #26402f;
+  --forest-dark: #16261b;
+  --gold: #c98a2c;
+  --gold-light: #e7b85e;
+  --rust: #a6472e;
+  --paper: #f7f2e7;
+  --paper-alt: #efe6d3;
+  --ink: #1e2a20;
+  --ink-soft: #5a6355;
+  --white: #ffffff;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-card: 0 14px 34px -18px rgba(22, 38, 27, 0.35);
+  --shadow-soft: 0 6px 18px -10px rgba(22, 38, 27, 0.28);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sell-page * {
+  box-sizing: border-box;
+}
+
+.sell-page {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  padding: 3.5rem 5% 5rem;
+}
+
+.sell-page :focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sell-container {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2.6rem 2.4rem;
+}
+
+/* ================= HEADER ================= */
+
+.sell-header {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--paper-alt);
+}
+
+.sell-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--forest-dark);
+  margin: 0 0 0.5rem;
+}
+
+.sell-header p {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ================= FORM ================= */
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--paper-alt);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9aa294;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 138, 44, 0.16);
+  background: var(--white);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.55;
+}
+
+/* ================= IMAGE UPLOAD ================= */
+
+.image-upload-box {
+  border: 1.5px dashed var(--sage, var(--paper-alt));
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 2.6rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  color: var(--ink-soft);
+  transition: background 0.2s ease;
+}
+
+.upload-label:hover {
+  background: var(--paper-alt);
+}
+
+.upload-icon {
+  font-size: 1.8rem;
+}
+
+.upload-label span:nth-child(2) {
+  font-weight: 700;
+  color: var(--forest);
+  font-size: 0.95rem;
+}
+
+.upload-label small {
+  color: #9aa294;
+  font-size: 0.78rem;
+}
+
+.image-preview {
+  position: relative;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  border: none;
+  background: rgba(22, 38, 27, 0.75);
+  color: var(--paper);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  backdrop-filter: blur(3px);
+  transition: background 0.2s ease;
+}
+
+.remove-image:hover {
+  background: var(--rust);
+}
+
+/* ================= SUBMIT ================= */
+
+.sell-submit-btn {
+  margin-top: 0.6rem;
+  border: none;
+  background: var(--gold);
+  color: var(--forest-dark);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+}
+
+.sell-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px -14px rgba(201, 138, 44, 0.6);
+}
+
+.sell-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 640px) {
+  .sell-page {
+    padding: 2.4rem 6% 4rem;
+  }
+
+  .sell-container {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
